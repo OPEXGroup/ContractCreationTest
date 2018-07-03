@@ -36,7 +36,7 @@ namespace ContractCreationTest
         {
             var solcPath = Path.GetFullPath(GetSolcPath(args));
             if (! File.Exists(solcPath))
-                throw new Exception("solc in unavailable");
+                throw new Exception($"solc in unavailable ({solcPath})");
             Log($"Using compiler {solcPath}");
             var sourcePath = Path.GetFullPath(GetContractSourcePath());
             Log($"Using contract {sourcePath}");
