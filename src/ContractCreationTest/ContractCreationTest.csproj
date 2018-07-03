@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <LangVersion>7.2</LangVersion>
-    <OutputPath>C:\Users\b0-0b\Repos\Tests\ContractCreationTest\build\</OutputPath>
+    <OutputPath>..\..\build\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
