@@ -3,9 +3,37 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8C0BB5C9-7B4B-43AF-876E-7FA03FFA406D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "contract", "contract", "{C7917416-F6D8-42C8-9989-20C67CF62463}"
+	ProjectSection(SolutionItems) = preProject
+		contract\Test.sol = contract\Test.sol
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F85F2632-E78D-4353-B17D-DA9137D221AC}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		run.sh = run.sh
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContractCreationTest", "src\ContractCreationTest\ContractCreationTest.csproj", "{B1FB90C0-7DCE-42AE-BC7A-274A02F2E54A}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1FB90C0-7DCE-42AE-BC7A-274A02F2E54A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1FB90C0-7DCE-42AE-BC7A-274A02F2E54A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1FB90C0-7DCE-42AE-BC7A-274A02F2E54A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1FB90C0-7DCE-42AE-BC7A-274A02F2E54A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B1FB90C0-7DCE-42AE-BC7A-274A02F2E54A} = {8C0BB5C9-7B4B-43AF-876E-7FA03FFA406D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0FFFF8FF-DC4C-4AFA-A454-90E3CD3A62E9}
