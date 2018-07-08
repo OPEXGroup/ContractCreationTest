@@ -1,4 +1,4 @@
-## POA-ETH API incompatibility sample
+## POA API sample
 
 ### Prerequisite
 

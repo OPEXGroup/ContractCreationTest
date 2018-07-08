@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Numerics;
 using System.Threading.Tasks;
+using Nethereum.Contracts;
 using Nethereum.Hex.HexTypes;
 using Nethereum.Signer;
 using Nethereum.Web3;
@@ -86,22 +87,21 @@ namespace ContractCreationTest
             var gasAmount = await web3.Eth.DeployContract.EstimateGasAsync(contractAbi, contractBin, Address);
             Log($"Estimated gas amount for deploy: {gasAmount.Value}");
 
-            /*
-             * Here's the trick. This code works perfectly with ETH nodes
-             *
-             * Here we first send deploy request
-             * Receive 0x1 (SUCCESS) in status field and some non-zero number in contract address
-             * BUT null's in transaction block hash and number
-             *
-             * eth_getCode with received address returns error
-             */
-            await web3.Eth.DeployContract.SendRequestAndWaitForReceiptAsync(
+            var receipt = await web3.Eth.DeployContract.SendRequestAndWaitForReceiptAsync(
                 abi: contractAbi,
                 contractByteCode: contractBin,
                 from: Address,
                 gas: gasAmount,
                 gasPrice: gasPrice,
                 value: value);
+            var contractAddress = receipt.ContractAddress;
+            Log($"Contract deployed at address {contractAddress}");
+
+            var contract = web3.Eth.GetContract(contractAbi, contractAddress);
+            var ownerFunction = contract.GetFunction("owner");
+
+            var ownerValue = await ownerFunction.CallAsync<string>();
+            Log($"Owner is {ownerValue}. Correct: {string.Equals(ownerValue, Address, StringComparison.OrdinalIgnoreCase)}");
         }
 
         private static string GetSolcPath(string[] args)
