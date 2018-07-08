@@ -12,10 +12,11 @@ namespace ContractCreationTest
 {
     public class Program
     {
-        private const string NodeUrl = "https://sokol.poa.network/";
+        private const string NodeUrl = "https://sokol-trace.poa.network/";
+        private const Chain SokolNetworkId = (Chain) 77;
 
-        private const string Address = "0x0C7Fbe6A23a69C14e1e3B1432C328Ce89999447f";
-        private const string PrivateKey = "b07d5bb55af52d46418862a559e6f94cdbc56fe9dbc998c2eaf5f51be2ae8a82";
+        private const string Address = "0x7D072707f4869cE64c7d3Bf5a6240Acff5277767";
+        private const string PrivateKey = "95eacdba1740c625cf7f418f76db431ea7feb9d61860ac8ffff005ad9a9ef3f0";
         private const string ContractOutputFolder = "ContractOutput";
 
         private static async Task Main(string[] args)
@@ -59,7 +60,7 @@ namespace ContractCreationTest
 
         private static async Task DeployContractAsync()
         {
-            var account = new Account(PrivateKey, Chain.Ropsten);
+            var account = new Account(PrivateKey, SokolNetworkId);
             var web3 = new Web3(account, NodeUrl)
             {
                 Client =
