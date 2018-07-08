@@ -13,7 +13,12 @@ namespace ContractCreationTest
     public class Program
     {
         private const string NodeUrl = "https://sokol-trace.poa.network/";
+        /**
+         * NB: Ids!
+         */
         private const Chain SokolNetworkId = (Chain) 77;
+        // ReSharper disable once UnusedMember.Local
+        private const Chain PoaMainNetNetworkId = (Chain) 99;
 
         private const string Address = "0x7D072707f4869cE64c7d3Bf5a6240Acff5277767";
         private const string PrivateKey = "95eacdba1740c625cf7f418f76db431ea7feb9d61860ac8ffff005ad9a9ef3f0";
