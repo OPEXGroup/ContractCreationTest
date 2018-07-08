@@ -13,7 +13,12 @@ namespace ContractCreationTest
 {
     public class Program
     {
-        private const string NodeUrl = "https://sokol-trace.poa.network/";
+        // Change this to start using mainnet/testnet
+        private const bool UseTestNet = true;
+
+        private const string TestNetNodeUrl = "https://sokol.poa.network/";
+
+        private const string MainNetNodeUrl = "https://core.poa.network/";
         /**
          * NB: Ids!
          */
@@ -66,8 +71,8 @@ namespace ContractCreationTest
 
         private static async Task DeployContractAsync()
         {
-            var account = new Account(PrivateKey, SokolNetworkId);
-            var web3 = new Web3(account, NodeUrl)
+            var account = new Account(PrivateKey, UseTestNet ? SokolNetworkId : PoaMainNetNetworkId);
+            var web3 = new Web3(account, UseTestNet ? TestNetNodeUrl : MainNetNodeUrl)
             {
                 Client =
                 {
