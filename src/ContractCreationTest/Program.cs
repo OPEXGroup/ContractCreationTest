@@ -13,10 +13,12 @@ namespace ContractCreationTest
 {
     public class Program
     {
+        private const string ContractName = "Test";
+
         // Change this to start using mainnet/testnet
         private const bool UseTestNet = true;
 
-        private const string TestNetNodeUrl = "https://sokol.poa.network/";
+        private const string TestNetNodeUrl = "https://sokol-trace.poa.network/";
 
         private const string MainNetNodeUrl = "https://core.poa.network/";
         /**
@@ -26,8 +28,8 @@ namespace ContractCreationTest
         // ReSharper disable once UnusedMember.Local
         private const Chain PoaMainNetNetworkId = (Chain) 99;
 
-        private const string Address = "0x7D072707f4869cE64c7d3Bf5a6240Acff5277767";
-        private const string PrivateKey = "95eacdba1740c625cf7f418f76db431ea7feb9d61860ac8ffff005ad9a9ef3f0";
+        private const string Address = "0xCAE25d8cDc94136d348469C13B221412543f3711";
+        private const string PrivateKey = "897af311f21765ca83fd6650ec1537c8bb783c63f57ac405796db7934f5c0cae";
         private const string ContractOutputFolder = "ContractOutput";
 
         private static async Task Main(string[] args)
@@ -81,11 +83,11 @@ namespace ContractCreationTest
                 }
             };
 
-            var contractAbi = File.ReadAllText($"{ContractOutputFolder}/Test.abi");
-            var contractBin = File.ReadAllText($"{ContractOutputFolder}/Test.bin");
+            var contractAbi = File.ReadAllText($"{ContractOutputFolder}/{ContractName}.abi");
+            var contractBin = File.ReadAllText($"{ContractOutputFolder}/{ContractName}.bin");
 
             // 20 GWei. Feel free to change
-            var gasPrice = new HexBigInteger(new BigInteger(20_000_000_000));
+            var gasPrice = new HexBigInteger(new BigInteger(30_000_000_000));
             // Contract creation transactions have zero value
             var value = new HexBigInteger(new BigInteger(0));
 
